@@ -19,7 +19,7 @@ int main()
     cout<<"Sin la primera palabra: "<<frase+5;
     cout<<endl;
 
-    //Si quiere cambiar las letras de la palabra, no usa const char y puntero!! Usa const y corchetes
+    //Si quiere cambiar las letras de la palabra, no usa const char y puntero!! Usa const y corchetes:
     char palabra[]="Yatta";
     cout<<"Antes: "<<palabra<<endl;
     palabra[1]= 'e';
