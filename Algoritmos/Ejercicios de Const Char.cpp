@@ -2,6 +2,12 @@
 
 using namespace std;
 
+int longitud(const char *cadenah){
+ int i=0;
+ while(cadenah[i]!='\0')
+    i++;
+ return i;
+}
 
 int main()
 {
@@ -12,6 +18,12 @@ int main()
     for(p=cadena; *p!='\0'; ++p)
         i++;
     cout<<"Longitud: "<< i << endl;
+    cout<<endl;
+      
+    //Longitud de const char:
+    const char *cadenah="Hola Bueno";
+    cout<<cadenah<<endl;
+    cout<<"Longitud de frase por ensima es: "<<longitud(cadenah);
 
     //Eliminar los primeros caracteres de la cadena:
     const char *frase="Hola Adios";
@@ -24,6 +36,7 @@ int main()
     cout<<"Antes: "<<palabra<<endl;
     palabra[1]= 'e';
     cout<<"Despues: "<<palabra;
+   
 
     return 0;
 }
