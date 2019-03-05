@@ -1,4 +1,4 @@
-#include <iostream>  //3 tane fonksiyonum kaldý onlarý da devam etçem inþ
+#include <iostream>  
 #include <string>
 
 using namespace std;
@@ -69,15 +69,16 @@ int main()
     char flag='n';
     do
     {
-        cout<<"¿Te gustaria instaducir estudiantes en el sistema? s/n"<<endl;
+        cout<<"Â¿Te gustaria instaducir estudiantes en el sistema? s/n"<<endl;
         cin>>flag;
+        cin.ignore();
         if (flag=='s')
         {
             string name,correo;
             cout<<"Introduzca nombre de estudiante: ";
-            cin>>name;
+            getline(cin, name);
             cout<<"Introduzca email de estudiante: ";
-            cin>>correo;
+            getline(cin,correo);
             creaEstudiante(alumnos,name,correo);
             cout<<endl;
         }
@@ -95,7 +96,7 @@ int main()
     int i=0;
     do
     {
-        cout<<"¿Te gustaria matricular estudiantes en las asignaturas? s/n"<<endl;
+        cout<<"Â¿Te gustaria matricular estudiantes en las asignaturas? s/n"<<endl;
         cin>>flag;
         if (flag=='s')
         {
@@ -106,20 +107,21 @@ int main()
             do
             {
 
+                cin.ignore();
                 string nam;
                 int curso;
                 cout<<"Introduzca nombre de asignatura: ";
-                cin>>nam;
+                getline(cin,nam);
                 cout<<"Introduzca curso de "<<nam<<" : ";
                 cin>>curso;
                 matricula(alumnos,nam,curso,i,p);
                 cout<<endl;
-                    float califica;
-                    cout<<"Introduzca la calificacion : ";
-                    cin>>califica;
-                    acta(alumnos,califica,i,p);
+                float califica;
+                cout<<"Introduzca la calificacion : ";
+                cin>>califica;
+                acta(alumnos,califica,i,p);
 
-                cout<<"¿Te gustaria matricula "<<alumnos[i].nombre<<" a en la otra asignaturas? s/n"<<endl;
+                cout<<"Â¿Te gustaria matricula "<<alumnos[i].nombre<<" a en la otra asignaturas? s/n"<<endl;
                 cin>>flag2;
                 if((flag2!='s') && (flag2!='n'))
                 {
