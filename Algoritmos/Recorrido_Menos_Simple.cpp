@@ -1,55 +1,57 @@
 #include <iostream>
-#include <time.h>
 #include <cstdlib>
+#include <time.h>
 
 using namespace std;
+const int MAX_SIZE=5;
 
-//3.2 Recorrido menos simple (2)
-
-void altera_colorpar(int **colorfondo, int maxsize)
+void printvi(int *values, int n)
 {
-    for(int i=0; i<maxsize; i++)
+    for(int i=0; i<n; i++)
     {
-        for(int j=0; j<maxsize; j++)
-        {
-            if(colorfondo[i][j]>=10)
-                colorfondo[i][j]-=10;
-        }
+        for(int j=0; j<n; j++)
+            cout<<values[i*n+j]<<" ";
+        cout<<endl;
     }
 
 }
 
-void imprint_colorpar(int **colorfondo,int maxsize)
+
+void printmi(int values[][MAX_SIZE], int n)
 {
-    int i,j;
-    for(i=0; i<maxsize; i++)
+    for(int i=0; i<n; i++)
     {
-        for(int j=0; j<maxsize; j++)
-            cout<<colorfondo[i][j]<<" ";
+        for(int j=0; j<n; j++)
+            cout<<values[i][j]<<" ";
         cout<<endl;
     }
 }
 
 int main()
 {
-    srand(time(NULL));
-    const int maxsize=5;
-    int ** pi,i,j;
-    pi= new int * [maxsize];
-    for (i=0; i<maxsize; i++)
-        pi[i] = new int[maxsize];
+    // 3.3 Recorrido matrices dobles (2)
 
-    for(i=0; i<maxsize; i++)
-    {
-        for(j=0; j<maxsize; j++)
-            pi[i][j] = rand() % 256;
-    }
-    cout<<"    Antes"<<endl<<endl;
-    imprint_colorpar(pi,maxsize);
-    altera_colorpar(pi,maxsize);
+    srand(time(NULL));
+
+    int pin[MAX_SIZE][MAX_SIZE],i,j,n;
+    int cambia[MAX_SIZE*MAX_SIZE];
+
+    cout<<"Introduzca tamano de matriz: ";
+    cin>>n;
     cout<<endl;
-    cout<<"    Despues"<<endl<<endl;
-    imprint_colorpar(pi,maxsize);
+
+    for(i=0; i<n; i++)
+    {
+        for(j=0; j<n; j++)
+        {
+            pin[i][j]= rand() %10;
+            cambia[i*n+j]=pin[i][j];
+        }
+    }
+
+    printvi(cambia,n);
+    cout<<endl;
+    printmi(pin,n);
 
     return 0;
 }
