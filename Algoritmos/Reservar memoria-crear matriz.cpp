@@ -55,7 +55,14 @@ int main()
     cout<<endl<<"La columna que tuvo la maxima suma => (0,1,2,..) "<<indices_max;
 
 
-    free(matriz);
-    free(sum);
+   for(i=0;i<fil;i++)
+       delete[] matriz[i];
+    
+    delete[] matriz;
+    delete[] sum;
+    //int matriz[5] diye yeni bir matris tanımlamaya çalışırsan hata alırsın
+    //zaten tanımlı sadece bellekteki yerini sildik(yer kaplamıyor) matriz[0][0] da artık istediğin değer yok
+    //yeni bir matrisi bu matrise atayabilirsin filan, kullanabilirsin
+    
     return 0;
 }
