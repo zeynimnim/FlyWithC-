@@ -2,32 +2,10 @@
 
 using namespace std;
 
-int main()
+void repite_items(int *&v, int &n,int *&v2,int &n2)
 {
-    int flag,i,j,n,*v=0,n2,*v2=0;
-    cout<<"Introduzca tamano de vector: ";
-    cin>>n;
-    v= new int [n];
-    cout<<"Como te gustaria empezar? "<<endl
-        <<"1)Introducir elementos de vector tu mismo "<<endl
-        <<"2)Introducir elementos automaticamente"<<endl;
-        cin>>flag;
 
-        cout<<endl<<"!!!ADVERTENCIA!!! No ingrese el primer elemento 0"<<endl;
-    if (flag==1)
-     for(i=0;i<n;i++){
-             cout<<"Introduzca la elemento "<<i<<" por favor:";
-             cin>>v[i];
-     }
-        else
-             for(i=0; i<n; i++)
-                 v[i]=i+1;
-
-
-    for(i=0; i<n; i++)
-        cout<<*(v+i)<<" ";
-
-    int conta=0;
+    int conta=0,i,j;
     for(i=0; i<n; i++)
     {
         j=1;
@@ -52,12 +30,47 @@ int main()
         }
         i++;
     }
-   // delete v[];
-    //v=v2;
-    //Bu ikisini yapıp aşağıyı v yapınca düzgün çalışmıyor kodum!!
+
+    delete[] v;
+    v=v2;
+
+}
+
+
+int main()
+{
+    int flag,i,j,n,*v=0,n2,*v2=0;
+    cout<<"Introduzca tamano de vector: ";
+    cin>>n;
+    v= new int [n];
+    cout<<"Como te gustaria empezar? "<<endl
+        <<"1)Introducir elementos de vector tu mismo "<<endl
+        <<"2)Introducir elementos automaticamente"<<endl;
+    cin>>flag;
+
+
+    if (flag==1)
+    {
+        cout<<endl<<"!!!ADVERTENCIA!!! No ingrese 0"<<endl;
+        for(i=0; i<n; i++)
+        {
+            cout<<"Introduzca la elemento "<<i<<" por favor:";
+            cin>>v[i];
+        }
+    }
+    else
+        for(i=0; i<n; i++)
+            v[i]=i+1;
+
+
+    for(i=0; i<n; i++)
+        cout<<*(v+i)<<" ";
+
+    repite_items(v,n,v2,n2);
+
     cout<<endl<<"Nueve vector: "<<endl;
     for(i=0; i<n2; i++)
-        cout<<*(v2+i)<<" ";
+        cout<<*(v+i)<<" ";
 
     return 0;
 }
