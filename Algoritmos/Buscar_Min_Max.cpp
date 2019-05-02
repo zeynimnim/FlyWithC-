@@ -8,7 +8,7 @@ int main()
 {
     std::clock_t c_start = std::clock();
 
-    int maximo,minimo,indice_maximo,indice_minimo,n=7;;
+    int maximo,minimo,indice_maximo,indice_minimo,n=7;
     int v[n]= {5,19,30,904,13,54,3};
     maximo=5;
     indice_maximo= 0;
