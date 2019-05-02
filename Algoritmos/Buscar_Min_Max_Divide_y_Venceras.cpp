@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void funcion(const int *v, int &bajo, int &alto, int &minimo, int &maximo,int &indice_min, int &indice_max)
+void funcion( const int *v, int &bajo, int &alto, int &minimo, int &maximo,int &indice_min, int &indice_max)
 {
     if (bajo == alto)
     {
