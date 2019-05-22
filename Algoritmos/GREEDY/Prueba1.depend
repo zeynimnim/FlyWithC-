@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1557540868 source:d:\chimpun\prueba1\main.cpp
+	<iostream>
+
+1558117873 source:d:\chimpun\dagcilik\main.cpp
+	<iostream>
+	<fstream>
+	<cassert>
+
